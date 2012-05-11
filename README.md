@@ -6,7 +6,7 @@ Tizona currently may be installed as submodule for your Git project:
 
 ``` bash
 git submodule add git://github.com/alexeyshockov/colada.git vendor/colada
-git submodule add git://github.com/alexeyshockov/colada.git vendor/tizona
+git submodule add git://github.com/alexeyshockov/tizona.git vendor/tizona
 ```
 
 or throught [Composer](https://github.com/composer/composer):
