@@ -1,0 +1,27 @@
+{
+    "name":        "alexeyshockov/tizona",
+    "description": "Persistent collections for PHP",
+    "keywords":    ["collections", "orm", "databases"],
+    "homepage":    "http://github.com/alexeyshockov/tizona",
+    "type":        "library",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name":     "Alexey Shockov",
+            "email":    "alexey@shockov.com",
+            "homepage": "http://alexey.shockov.com/"
+        }
+    ],
+
+    "require": {
+        "php":                  ">=5.3.2",
+        "alexeyshockov/colada": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Tizona": "src/"
+        }
+    }
+}
