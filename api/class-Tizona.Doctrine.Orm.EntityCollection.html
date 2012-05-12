@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.6.1" />
+
+	<title>Class Tizona\Doctrine\Orm\EntityCollection | Tizona</title>
+
+	<script type="text/javascript" src="resources/combined.js?144019575"></script>
+	<script type="text/javascript" src="elementlist.js?1884832108"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1532301413" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Tizona.html">Tizona<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Tizona.Doctrine.html">Doctrine<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Tizona.Doctrine.Orm.html">Orm</a>
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Tizona.Doctrine.Orm.CleverEntityCollection.html">CleverEntityCollection</a></li>
+				<li class="active"><a href="class-Tizona.Doctrine.Orm.EntityCollection.html">EntityCollection</a></li>
+				<li><a href="class-Tizona.Doctrine.Orm.EntityComparator.html">EntityComparator</a></li>
+				<li><a href="class-Tizona.Doctrine.Orm.EntityFilter.html">EntityFilter</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Tizona.Doctrine.Orm.html" title="Summary of Tizona\Doctrine\Orm"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class EntityCollection</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Colada\IteratorCollection
+			 implements 
+<span>Colada\Collection</span>, 
+			
+<span>Countable</span>, 
+			
+<span>IteratorAggregate</span>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Tizona\Doctrine\Orm\EntityCollection</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Tizona.Doctrine.Orm.CleverEntityCollection.html">Tizona\Doctrine\Orm\CleverEntityCollection</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Tizona.html">Tizona</a>\<a href="namespace-Tizona.Doctrine.html">Doctrine</a>\<a href="namespace-Tizona.Doctrine.Orm.html">Orm</a><br />
+		
+
+				<b>Author:</b>
+				Alexey Shockov &lt;<a
+href="mailto:alexey&#64;shockov.com">alexey&#64;<!---->shockov.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#14" title="Go to source code">Tizona/Doctrine/Orm/EntityCollection.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#63" title="Go to source code">__construct</a>( <span>Iterator|null <var>$entities</var></span>, <span> <var>$detaching</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entities</var></dt>
+					<dd><code>Iterator|null</code><br>$collection</dd>
+					<dt><var>$detaching</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="disableDetaching" id="_disableDetaching">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_disableDetaching">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#76" title="Go to source code">disableDetaching</a>( )</code>
+
+		<div class="description short">
+			
+<p>Save objects references inside (attach to UnitOfWork in Doctrine). Default
+behaviour.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Save objects references inside (attach to UnitOfWork in Doctrine). Default
+behaviour.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="enableDetaching" id="_enableDetaching">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_enableDetaching">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#84" title="Go to source code">enableDetaching</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isDetachingEnabled" id="_isDetachingEnabled">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isDetachingEnabled">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#91" title="Go to source code">isDetachingEnabled</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="slice" id="_slice">
+
+		<td class="attributes"><code>
+			 public 
+			Doctrine\Common\Collections\Collection
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_slice">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#99" title="Go to source code">slice</a>( <span>integer <var>$offset</var></span>, <span>integer <var>$length</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$offset</var></dt>
+					<dd><code>integer</code></dd>
+					<dt><var>$length</var></dt>
+					<dd><code>integer</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Doctrine\Common\Collections\Collection</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>InvalidArgumentException</code><br />
+				</div>
+
+				<h4>{inheritDoc}</h4>
+				<div class="list">
+				</div>
+
+				<h4>Implementation of</h4>
+				<div class="list"><code>Colada\Collection::slice</code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="count" id="_count">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_count">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#117" title="Go to source code">count</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code>Countable::count</code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIterator" id="_getIterator">
+
+		<td class="attributes"><code>
+			 public 
+			Iterator
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIterator">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#137" title="Go to source code">getIterator</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Iterator</code><br />
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code>IteratorAggregate::getIterator</code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="filterQbBy" id="_filterQbBy">
+
+		<td class="attributes"><code>
+			 protected 
+			Colada\Collection
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_filterQbBy">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#160" title="Go to source code">filterQbBy</a>( <span>callback <var>$filter</var></span>, <span>callback <var>$nativeFilter</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filter</var></dt>
+					<dd><code>callback</code></dd>
+					<dt><var>$nativeFilter</var></dt>
+					<dd><code>callback</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Colada\Collection</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="findInQbBy" id="_findInQbBy">
+
+		<td class="attributes"><code>
+			 protected 
+			Colada\Option
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_findInQbBy">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#184" title="Go to source code">findInQbBy</a>( <span>callback <var>$filter</var></span>, <span>callback <var>$nativeFilter</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filter</var></dt>
+					<dd><code>callback</code></dd>
+					<dt><var>$nativeFilter</var></dt>
+					<dd><code>callback</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Colada\Option</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sortQbBy" id="_sortQbBy">
+
+		<td class="attributes"><code>
+			 protected 
+			Colada\Collection
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sortQbBy">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#210" title="Go to source code">sortQbBy</a>( <span>callback <var>$comparator</var></span>, <span>callback <var>$nativeComparator</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$comparator</var></dt>
+					<dd><code>callback</code></dd>
+					<dt><var>$nativeComparator</var></dt>
+					<dd><code>callback</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Colada\Collection</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="foldQbBy" id="_foldQbBy">
+
+		<td class="attributes"><code>
+			 protected 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_foldQbBy">#</a>
+		<code><a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#234" title="Go to source code">foldQbBy</a>( <span>callback <var>$folder</var></span>, <span>callback <var>$nativeFolder</var></span>, <span>mixed <var>$accumulator</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$folder</var></dt>
+					<dd><code>callback</code></dd>
+					<dt><var>$nativeFolder</var></dt>
+					<dd><code>callback</code></dd>
+					<dt><var>$accumulator</var></dt>
+					<dd><code>mixed</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from Colada\IteratorCollection</caption>
+	<tr>
+		<td><code>
+acceptBy(), 
+complement(), 
+contains(), 
+createCollectionBuilder(), 
+eachBy(), 
+findBy(), 
+flatMapBy(), 
+foldBy(), 
+groupBy(), 
+intersect(), 
+isAllMatchBy(), 
+isAnyMatchBy(), 
+isEmpty(), 
+isNoneMatchBy(), 
+isPartOf(), 
+mapBy(), 
+normalizeCollection(), 
+partitionBy(), 
+pluck(), 
+reduceBy(), 
+rejectBy(), 
+sortBy(), 
+toArray(), 
+union(), 
+unzip(), 
+zip()
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="queryBuilder" id="$queryBuilder">
+
+		<td class="attributes"><code>
+			protected 
+			Doctrine\ORM\QueryBuilder
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Tizona.Doctrine.Orm.EntityCollection.html#19" title="Go to source code"><var>$queryBuilder</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$queryBuilder" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from Colada\IteratorCollection</caption>
+	<tr>
+		<td><code>
+<var>$iterator</var>
+		</code></td>
+	</tr>
+	</table>
+
+
+</div>
+
+	<div id="footer">
+		Tizona API documentation generated by <a href="http://apigen.org">ApiGen 2.6.1</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
