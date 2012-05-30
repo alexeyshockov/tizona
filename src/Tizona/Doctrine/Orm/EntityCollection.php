@@ -12,6 +12,8 @@ use Colada\CollectionMapIterator;
 use Colada\Contracts;
 
 /**
+ * Ready to use persistent collection of entities with lazy slice() and count() methods.
+ *
  * @author Alexey Shockov <alexey@shockov.com>
  */
 class EntityCollection extends \Colada\IteratorCollection
@@ -60,6 +62,14 @@ class EntityCollection extends \Colada\IteratorCollection
         $this->iterator   = $this->getIterator();
     }
 
+    /**
+     * Query builder (not loaded collection) or entities (loaded) collection.
+     *
+     * For Doctrine's PersistentCollection internal query builder will be created.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|\Doctrine\ORM\PersistentCollection|mixed $entities
+     * @param bool $detaching
+     */
     public function __construct($entities, $detaching = false)
     {
         if ($entities instanceof QueryBuilder) {
@@ -81,6 +91,11 @@ class EntityCollection extends \Colada\IteratorCollection
         $this->detaching = false;
     }
 
+    /**
+     * Enables detaching while iterating through internal Doctrine's query results.
+     *
+     * Useful for dealing with memory problems on large collections.
+     */
     public function enableDetaching()
     {
         if ($this->queryBuilder) {
@@ -114,6 +129,9 @@ class EntityCollection extends \Colada\IteratorCollection
         }
     }
 
+    /**
+     * @{inheritDoc}
+     */
     public function count()
     {
         if ($this->queryBuilder) {
@@ -135,7 +153,7 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @return \Iterator
+     * @{inheritDoc}
      */
     public function getIterator()
     {
@@ -158,14 +176,14 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @param callback $filter
+     * @param callback $qbFilter
      * @param callback $nativeFilter
      *
      * @return \Colada\Collection
      */
-    protected function filterQbBy($filter, $nativeFilter)
+    protected function filterQbBy($qbFilter, $nativeFilter)
     {
-        Contracts::ensureCallable($filter, $nativeFilter);
+        Contracts::ensureCallable($qbFilter, $nativeFilter);
 
         if ($this->queryBuilder) {
             $queryBuilder = clone $this->queryBuilder;
@@ -173,7 +191,7 @@ class EntityCollection extends \Colada\IteratorCollection
             $alias = $queryBuilder->getRootAliases();
             $alias = $alias[0];
 
-            call_user_func($filter, $queryBuilder, $alias);
+            call_user_func($qbFilter, $queryBuilder, $alias);
 
             return new static($queryBuilder, $this->detaching);
         } else {
@@ -182,14 +200,14 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @param callback $filter
+     * @param callback $qbFilter
      * @param callback $nativeFilter
      *
      * @return \Colada\Option
      */
-    protected function findInQbBy($filter, $nativeFilter)
+    protected function findInQbBy($qbFilter, $nativeFilter)
     {
-        Contracts::ensureCallable($filter, $nativeFilter);
+        Contracts::ensureCallable($qbFilter, $nativeFilter);
 
         if ($this->queryBuilder) {
             $queryBuilder = clone $this->queryBuilder;
@@ -197,7 +215,7 @@ class EntityCollection extends \Colada\IteratorCollection
             $alias = $queryBuilder->getRootAliases();
             $alias = $alias[0];
 
-            call_user_func($filter, $queryBuilder, $alias);
+            call_user_func($qbFilter, $queryBuilder, $alias);
 
             $entity = $queryBuilder->getQuery()->getOneOrNullResult();
 
@@ -208,14 +226,14 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @param callback $comparator
+     * @param callback $qbComparator
      * @param callback $nativeComparator
      *
      * @return \Colada\Collection
      */
-    protected function sortQbBy($comparator, $nativeComparator)
+    protected function sortQbBy($qbComparator, $nativeComparator)
     {
-        Contracts::ensureCallable($comparator, $nativeComparator);
+        Contracts::ensureCallable($qbComparator, $nativeComparator);
 
         if ($this->queryBuilder) {
             $queryBuilder = clone $this->queryBuilder;
@@ -223,7 +241,7 @@ class EntityCollection extends \Colada\IteratorCollection
             $alias = $queryBuilder->getRootAliases();
             $alias = $alias[0];
 
-            call_user_func($comparator, $queryBuilder, $alias);
+            call_user_func($qbComparator, $queryBuilder, $alias);
 
             return new static($queryBuilder, $this->detaching);
         } else {
@@ -232,15 +250,15 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @param callback $folder
+     * @param callback $qbFolder
      * @param callback $nativeFolder
-     * @param mixed    $accumulator
+     * @param mixed    $accumulator For native filter.
      *
      * @return mixed
      */
-    protected function foldQbBy($folder, $nativeFolder, $accumulator)
+    protected function foldQbBy($qbFolder, $nativeFolder, $accumulator)
     {
-        Contracts::ensureCallable($folder, $nativeFolder);
+        Contracts::ensureCallable($qbFolder, $nativeFolder);
 
         if ($this->queryBuilder) {
             $queryBuilder = clone $this->queryBuilder;
@@ -249,7 +267,7 @@ class EntityCollection extends \Colada\IteratorCollection
             $alias = $alias[0];
 
             // TODO Do ->getQuery()->getOneOrNullResult() here?
-            call_user_func($folder, $queryBuilder, $alias);
+            call_user_func($qbFolder, $queryBuilder, $alias);
 
             return $queryBuilder->getQuery()->getOneOrNullResult();
         } else {

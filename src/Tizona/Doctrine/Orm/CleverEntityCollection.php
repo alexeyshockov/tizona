@@ -7,24 +7,28 @@ use Colada\Contracts;
 /**
  * With magic helpers.
  *
- * Candidate for trait...
+ * Candidate for trait?..
  *
  * @author Alexey Shockov <alexey@shockov.com>
  */
 abstract class CleverEntityCollection extends EntityCollection
 {
     /**
+     * Creates filter object with one concrete criteria setted.
+     *
      * @throws \InvalidArgumentException
      *
-     * @param string $property
-     * @param mixed $value
+     * @param string $criteria
+     * @param mixed  $value
      *
      * @return EntityFilter
      */
     // TODO Proper exception for unknown property.
-    abstract protected function getFilterForProperty($property, $value);
+    abstract protected function getFilterForCriteria($criteria, $value);
 
     /**
+     * Creates comparator object for concrete property.
+     *
      * @throws \InvalidArgumentException
      *
      * @param string $property
@@ -86,6 +90,20 @@ abstract class CleverEntityCollection extends EntityCollection
         );
     }
 
+    /**
+     * Magic methods.
+     *
+     * Available for patterns:
+     * * findBy{Filter}, findFor{Filter} — find one element by filter.
+     * * acceptBy{Filter}, acceptFor{Filter} — find elements by filter.
+     * * sortBy{Property} - sort collection by property.
+     * * with{Property} — join associated property.
+     *
+     * @param string $method
+     * @param array  $arguments
+     *
+     * @return mixed
+     */
     public function __call($method, $arguments)
     {
         $methodMap = array(
@@ -110,7 +128,7 @@ abstract class CleverEntityCollection extends EntityCollection
 
     private function acceptByProperty($property, $value)
     {
-        $filter = $this->getFilterForProperty($property, $value);
+        $filter = $this->getFilterForCriteria($property, $value);
 
         return $this->filterQbBy(
             array($filter, 'updateQb'),
@@ -120,7 +138,7 @@ abstract class CleverEntityCollection extends EntityCollection
 
     private function findByProperty($property, $value)
     {
-        $filter = $this->getFilterForProperty($property, $value);
+        $filter = $this->getFilterForCriteria($property, $value);
 
         return $this->findInQbBy(
             array($filter, 'updateQb'),

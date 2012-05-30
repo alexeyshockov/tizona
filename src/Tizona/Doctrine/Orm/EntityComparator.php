@@ -5,6 +5,8 @@ namespace Tizona\Doctrine\Orm;
 /**
  * Default comparator for properties with natural order.
  *
+ * Immutable.
+ *
  * @author Alexey Shockov <alexey@shockov.com>
  */
 class EntityComparator
@@ -26,7 +28,7 @@ class EntityComparator
      * @param array                  $properties {name: type} pairs. Available types: string, date, number.
      * @param array                  $order
      */
-    public function __construct($class, $properties, array $order = array())
+    public function __construct($class, array $properties, array $order = array())
     {
         // TODO More validation?
         if (!is_object($class)) {
@@ -45,6 +47,16 @@ class EntityComparator
         $this->order      = $order;
     }
 
+    /**
+     * Compares two entities.
+     *
+     * @throws \InvalidArgumentException If entities can not be compared.
+     *
+     * @param mixed $entity1
+     * @param mixed $entity2
+     *
+     * @return int
+     */
     public function __invoke($entity1, $entity2)
     {
         if (!$this->class->isInstance($entity1) || !$this->class->isInstance($entity2)) {
@@ -71,7 +83,13 @@ class EntityComparator
         return $result;
     }
 
-    public function updateQb($queryBuilder, $alias)
+    /**
+     * Updates Doctrine's query builder for this comparator.
+     *
+     * @param \Doctrine\ORM\QueryBuilder $queryBuilder
+     * @param string                     $alias
+     */
+    public function updateQb(\Doctrine\ORM\QueryBuilder $queryBuilder, $alias)
     {
         // Clear ORDER BY, multiple comparators not allowed.
         $queryBuilder->add('orderBy', '');
