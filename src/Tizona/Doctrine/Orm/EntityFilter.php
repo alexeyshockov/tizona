@@ -28,7 +28,7 @@ abstract class EntityFilter
             }
         }
 
-        return filter;
+        return $filter;
     }
 
     protected function __construct()
