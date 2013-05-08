@@ -59,7 +59,7 @@ class EntityCollection extends \Colada\IteratorCollection
     private function fromQueryBuilder(QueryBuilder $queryBuilder)
     {
         $this->queryBuilder = $queryBuilder;
-        $this->iterator   = $this->getIterator();
+        $this->iterator     = $this->getQbIterator()->orThrow(new \RuntimeException('You should go away from PHP.'));
     }
 
     /**
@@ -85,6 +85,8 @@ class EntityCollection extends \Colada\IteratorCollection
 
     /**
      * Save objects references inside (attach to UnitOfWork in Doctrine). Default behaviour.
+     *
+     * P.S. Only for "lazy" (not already loaded) collections.
      */
     public function disableDetaching()
     {
@@ -95,6 +97,8 @@ class EntityCollection extends \Colada\IteratorCollection
      * Enables detaching while iterating through internal Doctrine's query results.
      *
      * Useful for dealing with memory problems on large collections.
+     *
+     * P.S. Only for "lazy" (not already loaded) collections.
      */
     public function enableDetaching()
     {
@@ -153,26 +157,30 @@ class EntityCollection extends \Colada\IteratorCollection
     }
 
     /**
-     * @{inheritDoc}
+     * Only if query builder available.
+     *
+     * @return \Colada\Option
      */
-    public function getIterator()
+    protected function getQbIterator()
     {
+        $iterator = option(null);
         if ($this->queryBuilder) {
-            return new CollectionMapIterator(
-                $this->queryBuilder->getQuery()->iterate(),
+            $iterator = option(new CollectionMapIterator(
+                new ResultSetIterator($this->queryBuilder->getQuery()),
                 function($row) {
                     $entity = $row[0];
 
                     if ($this->detaching) {
+                        // TODO Check this code on PHP 5.3.
                         $this->queryBuilder->getEntityManager()->detach($entity);
                     }
 
                     return $entity;
                 }
-            );
-        } else {
-            return parent::getIterator();
+            ));
         }
+
+        return $iterator;
     }
 
     /**
