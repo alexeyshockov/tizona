@@ -15,15 +15,24 @@
     ],
 
     "require": {
-        "php":                  ">=5.3.2",
+        "php": ">=5.3.2",
+
         "alexeyshockov/colada": "dev-master"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+
+    "config": {
+        "bin-dir": "bin"
     },
 
     "autoload": {
         "psr-0": {
             "Tizona": "src/"
         }
-    }
+    },
 
     "extra": {
         "branch-alias": {

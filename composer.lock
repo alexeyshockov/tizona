@@ -1,0 +1,61 @@
+{
+    "hash": "ca3cdb64dfd19c530c225383a152769b",
+    "packages": [
+        {
+            "name": "alexeyshockov/colada",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexeyshockov/colada.git",
+                "reference": "13e33c3337bd6fcc7a3940aab74af01bb48893d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexeyshockov/colada/zipball/13e33c3337bd6fcc7a3940aab74af01bb48893d7",
+                "reference": "13e33c3337bd6fcc7a3940aab74af01bb48893d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpspec/phpspec2": "dev-develop"
+            },
+            "time": "1367997584",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Colada": "src/",
+                    "JsonSerializable": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexey Shockov",
+                    "email": "alexey@shockov.com",
+                    "homepage": "http://alexey.shockov.com/"
+                }
+            ],
+            "description": "Collections framework for PHP",
+            "homepage": "http://github.com/alexeyshockov/colada",
+            "keywords": [
+                "collections"
+            ]
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "alexeyshockov/colada": 20
+    }
+}
