@@ -14,7 +14,7 @@ or throught [Composer](https://github.com/composer/composer):
 ``` json
 {
     "require": {
-        "alexeyshockov/tizona": "dev-master"
+        "alexeyshockov/tizona": "0.1-dev"
     }
 }
 ```
